@@ -3,6 +3,7 @@ from contextlib import asynccontextmanager
 from config import get_settings
 from db import sessionmanager
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
 
@@ -30,6 +31,15 @@ app = FastAPI(
     version=settings.APP_VERSION,
     swagger_ui_parameters={"defaultModelsExpandDepth": -1},
     docs_url="/",
+)
+
+# TODO: specify CORS settings
+app.add_middleware(
+    CORSMiddleware,
+    allow_credentials=True,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 if __name__ == "__main__":
