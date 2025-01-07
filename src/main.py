@@ -4,8 +4,8 @@ from config import get_settings
 from db import sessionmanager
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from campaign.router import campaign_router
 import uvicorn
-
 
 settings = get_settings()
 
@@ -41,6 +41,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(campaign_router)
 
 if __name__ == "__main__":
     uvicorn.run(
