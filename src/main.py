@@ -29,7 +29,9 @@ app = FastAPI(
     lifespan=lifespan,
     title=settings.APP_NAME,
     version=settings.APP_VERSION,
+    contact={"name": settings.ADMIN_NAME, "email": settings.ADMIN_EMAIL},
     swagger_ui_parameters={"defaultModelsExpandDepth": -1},
+    description="This API provides insights on Daily Campaigns and associated scores (media, effectiveness, and creative) over a specified time period.",
     docs_url="/",
 )
 
