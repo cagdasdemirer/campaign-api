@@ -5,8 +5,8 @@ from . import Base
 
 class DailyCampaign(Base):
     __tablename__ = "tbl_daily_campaigns"
-    id = Column('campaign_id', String(64), nullable=True)
-    date = Column(String(50), nullable=True)
+    id = Column('campaign_id', String(64), nullable=True, primary_key=True)
+    date = Column(String(50), nullable=True, primary_key=True)
     impressions = Column(Integer, nullable=True)
     clicks = Column(Integer, nullable=True)
     name = Column('campaign_name', String(50), nullable=True)
@@ -18,8 +18,8 @@ class DailyCampaign(Base):
 
 class DailyScore(Base):
     __tablename__ = 'tbl_daily_scores'
-    id = Column('campaign_id', String(64), nullable=True)
-    date = Column(String(50), nullable=True)
+    id = Column('campaign_id', String(64), nullable=True, primary_key=True)
+    date = Column(String(50), nullable=True, primary_key=True)
     media = Column(Integer, nullable=True)
     name = Column('campaign_name', String(50), nullable=True)
     start_date = Column(String(50), nullable=True)
