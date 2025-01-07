@@ -1,9 +1,23 @@
-# Test your FastAPI endpoints
-
-GET http://127.0.0.1:8000/
+### Find ALl Campaigns with no filters
+GET http://127.0.0.1:8000/campaigns/
 Accept: application/json
-###
 
-GET http://127.0.0.1:8000/hello/User
+### Find Campaign Data with invalid campaign_id filter
+GET http://127.0.0.1:8000/campaigns/?campaign_id=asdas
 Accept: application/json
-###
+
+### Find Campaign Data with valid campaign_id filter
+GET http://127.0.0.1:8000/campaigns/?campaign_id=f9bedbbf3c17d
+Accept: application/json
+
+### Find Campaign Data with valid start_date filter
+GET http://127.0.0.1:8000/campaigns/?start_date=2023-06-06
+Accept: application/json
+
+### Find Campaign Data with valid start and end_date filter
+GET http://127.0.0.1:8000/campaigns/?start_date=2023-06-06&end_date=2023-06-10
+Accept: application/json
+
+### Find Campaign Data with valid campaign_idi, start and end_date filter
+GET http://127.0.0.1:8000/campaigns/?start_date=2023-06-06&end_date=2023-06-09&campaign_id=f9bedbbf3c17d
+Accept: application/json

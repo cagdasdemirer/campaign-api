@@ -57,10 +57,10 @@ async def get_campaigns_data(db_session: AsyncSession,
 
         if date not in impressions_dict:
             impressions_dict[date] = impressions
-            cpm_dict[date] = cpm
+            cpm_dict[date] = round(cpm,2)
         else:
             impressions_dict[date] += impressions
-            cpm_dict[date] += cpm
+            cpm_dict[date] += round(cpm,2)
 
     # Set daily_campaign table as real ranges and handle missing values in daily_scores table as 0
     query = (
